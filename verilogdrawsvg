@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# drawsvg - A script to convert Verilog files to SVG diagrams using yosys and netlistsvg
+# Requires: yosys, netlistsvg, rsvg-convert, xdg-open (optional for viewing the image)
+# Usage: drawsvg <verilog_files.v...> [top_module_name]
+
+# Check if required commands are available
+for cmd in yosys netlistsvg rsvg-convert; do
+    if ! command -v "$cmd" &> /dev/null; then
+        echo "Error: $cmd is not installed. Please install it to use this script."
+        exit 1
+    fi
+done
+# Check if at least one Verilog file is provided
+if [ "$#" -lt 1 ]; then
+    echo "Usage: drawsvg <verilog_files.v...> [top_module_name]"
+    exit 1
+fi
+
+# Separate file names and optional top module
+TOP_MODULE=""
+VERILOG_FILES=()
+
+# Collect Verilog files and optional top module name
+for arg in "$@"; do
+    if [[ "$arg" == *.v ]]; then
+        VERILOG_FILES+=("$arg")
+    else
+        TOP_MODULE="$arg"
+    fi
+done
+
+if [ ${#VERILOG_FILES[@]} -eq 0 ]; then
+    echo "No Verilog files provided."
+    exit 1
+fi
+
+# Default base name (from first file)
+FIRST_FILE="${VERILOG_FILES[0]}"
+BASENAME=$(basename "$FIRST_FILE" .v)
+
+# Join all .v file names for yosys input
+VERILOG_INPUT=$(IFS=" "; echo "${VERILOG_FILES[*]}")
+
+# Auto-detect top module if not specified
+if [ -z "$TOP_MODULE" ]; then
+    TOP_MODULE=$(yosys -p "read_verilog $VERILOG_INPUT; hierarchy -check -auto-top; exit" 2>/dev/null \
+              | grep "Top module" | tail -n 1 | awk '{print $3}' | tr -d '\\\r\n')
+
+    # Check if auto-detection was successful
+    if [ -z "$TOP_MODULE" ]; then
+        echo "Failed to auto-detect top module. Please specify it explicitly."
+        exit 1
+    fi
+    echo "Auto-detected top module: $TOP_MODULE"
+    BASENAME="$TOP_MODULE"
+else
+    BASENAME="$TOP_MODULE"
+fi
+
+# Run yosys with detected or specified top module
+if ! yosys -p "
+            read_verilog $VERILOG_INPUT; 
+            hierarchy -top $TOP_MODULE; 
+            proc; 
+            opt; 
+            # opt_clean;
+            # memory;
+            # techmap;
+            write_json ${BASENAME}.json"; then
+    echo "Yosys failed. Check your Verilog files for syntax or hierarchy issues."
+    exit 1
+fi
+
+# Check if the JSON file was created
+if [ ! -f "${BASENAME}.json" ]; then
+    echo "Error: Failed to generate ${BASENAME}.json"
+    exit 1
+fi
+
+
+# Run netlistsvg
+netlistsvg "${BASENAME}.json" -o "${BASENAME}.svg"
+
+# Convert SVG to JPG with white background
+rsvg-convert "${BASENAME}.svg" -o "${BASENAME}.jpg" -b white -w 2000 #-h 1500
+
+# Clean up existing output files
+rm -f "${BASENAME}.json" "${BASENAME}.svg"
+
+# Optional: Open image (uncomment if needed)
+xdg-open "${BASENAME}.jpg"
