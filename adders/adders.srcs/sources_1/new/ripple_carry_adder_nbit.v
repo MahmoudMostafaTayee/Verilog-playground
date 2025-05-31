@@ -1,3 +1,25 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 05/31/2025 07:05:49 AM
+// Design Name: 
+// Module Name: ripple_carry_adder_nbit
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
 module ripple_carry_adder_nbit
     #(parameter n = 4)
     (   
@@ -11,7 +33,7 @@ module ripple_carry_adder_nbit
     assign c[0] = cin;
     assign cout = c[n];
 
-    generate;
+    generate
         genvar i;
         for (i=0; i<n; i= i+1) begin: stage
             full_adder u_full_adder (
@@ -24,3 +46,4 @@ module ripple_carry_adder_nbit
         end
     endgenerate
 endmodule
+
