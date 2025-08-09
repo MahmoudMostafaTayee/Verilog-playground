@@ -1,0 +1,6 @@
+Time resolution is 1 ps
+time:   0 -> x:  5, y:  6, select: 0, result: 11, cout: 0, overflow: 1
+time:  10 -> x:  5, y:  6, select: 1, result: 15, cout: 0, overflow: 0
+time:  20 -> x:  6, y: 13, select: 1, result:  9, cout: 0, overflow: 1
+time:  30 -> x: 12, y: 11, select: 0, result:  7, cout: 1, overflow: 1
+$finish called at time : 40 ns : File "/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sim_1/new/adder_subtractor_tb.v" Line 50

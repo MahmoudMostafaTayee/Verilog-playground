@@ -1,0 +1,48 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x58f01e1d0330 .scope module, "buffer_tb" "buffer_tb" 2 3;
+ .timescale -9 -12;
+v0x58f01e1e0e60_0 .var "in", 15 0;
+v0x58f01e1e0f20_0 .net "out", 15 0, L_0x58f01e1e0ff0;  1 drivers
+S_0x58f01e1d04c0 .scope module, "uut" "buffer" 2 7, 3 1 0, S_0x58f01e1d0330;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "in";
+    .port_info 1 /OUTPUT 16 "out";
+L_0x58f01e1e0ff0 .functor BUFZ 16, v0x58f01e1e0e60_0, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+v0x58f01e1d06a0_0 .net "in", 15 0, v0x58f01e1e0e60_0;  1 drivers
+v0x58f01e1e0d20_0 .net "out", 15 0, L_0x58f01e1e0ff0;  alias, 1 drivers
+    .scope S_0x58f01e1d0330;
+T_0 ;
+    %vpi_call 2 13 "$dumpfile", "wave.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x58f01e1d0330 {0 0 0};
+    %pushi/vec4 0, 0, 16;
+    %store/vec4 v0x58f01e1e0e60_0, 0, 16;
+    %delay 10000, 0;
+    %pushi/vec4 15, 0, 16;
+    %store/vec4 v0x58f01e1e0e60_0, 0, 16;
+    %delay 10000, 0;
+    %pushi/vec4 255, 0, 16;
+    %store/vec4 v0x58f01e1e0e60_0, 0, 16;
+    %delay 10000, 0;
+    %pushi/vec4 4095, 0, 16;
+    %store/vec4 v0x58f01e1e0e60_0, 0, 16;
+    %delay 10000, 0;
+    %pushi/vec4 65535, 0, 16;
+    %store/vec4 v0x58f01e1e0e60_0, 0, 16;
+    %delay 10000, 0;
+    %vpi_call 2 22 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "buffer_tb.v";
+    "buffer.v";

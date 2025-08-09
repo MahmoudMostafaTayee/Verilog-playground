@@ -1,0 +1,14 @@
+0.7
+2020.2
+Nov  8 2024
+22:36:55
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sim_1/new/adder_subtractor_tb.v,1748685581,verilog,,,,adder_subtractor_tb,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/adder_subtractor.v,1748683606,verilog,,/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/adder_subtractor_nbit.v,,adder_subtractor,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/adder_subtractor_nbit.v,1748666101,verilog,,/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/full_adder.v,,adder_subtractor_nbit,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/arithmetic_operators.v,1748671797,verilog,,/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sim_1/new/adder_subtractor_tb.v,,arithmetic_operators,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/full_adder.v,1748664198,verilog,,/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/half_adder.v,,full_adder,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/half_adder.v,1748664116,verilog,,/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/multi_adders.v,,half_adder,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/multi_adders.v,1748665051,verilog,,/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/ripple_carry_adder_4bit.v,,multi_adders,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/ripple_carry_adder_4bit.v,1748664275,verilog,,/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/ripple_carry_adder_nbit.v,,ripple_carry_adder_4bit,,,,,,,,
+/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/ripple_carry_adder_nbit.v,1748664469,verilog,,/mnt/hdd1/Endeavour/DigitalElectronics/verilog/adders/adders.srcs/sources_1/new/arithmetic_operators.v,,ripple_carry_adder_nbit,,,,,,,,

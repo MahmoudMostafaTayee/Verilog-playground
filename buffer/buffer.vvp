@@ -1,0 +1,22 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x61c9d2572570 .scope module, "buffer" "buffer" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "in";
+    .port_info 1 /OUTPUT 16 "out";
+o0x7975337a0018 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+L_0x61c9d25b8580 .functor BUFZ 16, o0x7975337a0018, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+v0x61c9d2573d20_0 .net "in", 15 0, o0x7975337a0018;  0 drivers
+v0x61c9d2574400_0 .net "out", 15 0, L_0x61c9d25b8580;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "buffer.v";
